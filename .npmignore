@@ -15,8 +15,11 @@ node_modules/
 .eslintrc
 .eslintignore
 .prettierrc
+.nvmrc
+.github
+.editorconfig
 webpack.config.js
-jest-config.js
+jest.config.js
 
 # Source Code
 src
