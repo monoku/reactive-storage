@@ -1,0 +1,61 @@
+{
+  "name": "@monoku/reactive-storage",
+  "version": "0.0.1",
+  "description": "A reactive storage with zero dependency",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "eslint src/**/*.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "build": "webpack --mode development ./src/index.js --output ./lib/index.js",
+    "build:min": "webpack --mode production ./src/index.js --output ./lib/index.js",
+    "prepublish": "npm run clean && npm run build && npm run build:min"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "./node_modules/.bin/eslint --fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monoku/reactive-storage.git"
+  },
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "browser",
+    "storage",
+    "reactive"
+  ],
+  "author": "Luis Lacruz <@luixlacrux> (https://monoku.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monoku/reactive-storage/issues"
+  },
+  "homepage": "https://github.com/monoku/reactive-storage#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.5",
+    "jest": "^26.0.0",
+    "lint-staged": "^10.2.2",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3"
+  }
+}
